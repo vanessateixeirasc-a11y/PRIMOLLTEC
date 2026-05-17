@@ -17,7 +17,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'PRIMOLLTEC - Assistente de Atendimento',
-  description: 'Especialistas em manutenção e conserto de ar condicionado e aquecedores a gás.',
+  description:
+    'Especialistas em manutenção e conserto de ar condicionado e aquecedores a gás.',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export const viewport: Viewport = {
@@ -34,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${inter.variable} bg-background`}>
+    <html
+      lang="pt-BR"
+      className={`${poppins.variable} ${inter.variable} bg-background`}
+    >
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
