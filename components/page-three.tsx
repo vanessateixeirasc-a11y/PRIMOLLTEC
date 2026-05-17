@@ -22,7 +22,7 @@ export function PageThree() {
     }
   }, [])
 
-  const whatsappNumber = "5511999999999"
+  const whatsappNumber = "5521972377240"
   const whatsappMessage = encodeURIComponent(
     "Olá! Gostaria de falar com um especialista sobre meu equipamento."
   )
