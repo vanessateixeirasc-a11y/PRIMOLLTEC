@@ -19,10 +19,23 @@ export const metadata: Metadata = {
   title: 'PRIMOLLTEC - Assistente de Atendimento',
   description:
     'Especialistas em manutenção e conserto de ar condicionado e aquecedores a gás.',
+
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      {
+        url: '/favicon.png',
+        type: 'image/png',
+      },
+    ],
+
+    shortcut: ['/favicon.png'],
+
+    apple: [
+      {
+        url: '/favicon.png',
+        type: 'image/png',
+      },
+    ],
   },
 }
 
@@ -46,6 +59,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         {children}
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
