@@ -31,6 +31,24 @@ export function PageOne({ onSelectDevice }: PageOneProps) {
     email.trim() !== "" &&
     phone.trim() !== ""
 
+    const saveClient = async () => {
+  try {
+    await fetch("/api/clientes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+      }),
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
   return (
     <div className="flex flex-1 flex-col gap-5 px-4 pb-4">
       {/* Welcome message */}
@@ -156,11 +174,12 @@ export function PageOne({ onSelectDevice }: PageOneProps) {
       >
         <button
           aria-disabled={!formCompleted}
-          onClick={() => {
-            if (formCompleted) {
-              onSelectDevice("ar-condicionado")
-            }
-          }}
+          onClick={async () => {
+  if (formCompleted) {
+    await saveClient()
+    onSelectDevice("ar-condicionado")
+  }
+}}
           className={`flex flex-col items-center gap-3 rounded-2xl border border-border bg-card px-4 pb-5 pt-4 shadow-sm transition-all ${
             formCompleted
               ? "active:scale-[0.98]"
@@ -186,11 +205,12 @@ export function PageOne({ onSelectDevice }: PageOneProps) {
 
         <button
           aria-disabled={!formCompleted}
-          onClick={() => {
-            if (formCompleted) {
-              onSelectDevice("aquecedor")
-            }
-          }}
+          onClick={async () => {
+  if (formCompleted) {
+    await saveClient()
+    onSelectDevice("aquecedor")
+  }
+}}
           className={`flex flex-col items-center gap-3 rounded-2xl border border-border bg-card px-4 pb-5 pt-4 shadow-sm transition-all ${
             formCompleted
               ? "active:scale-[0.98]"
